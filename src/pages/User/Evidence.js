@@ -3,28 +3,26 @@ import axios from "axios";
 import Footer from "../../components/Footer";
 import {Button} from 'react-bootstrap';
 
-const Registration = () => {
+const Evidence = () => {
 
-    const [nidNumber, setNidNumber] = useState('');
-    const [faceRecognition, setFaceRecognition] = useState('');
+    const [firNumber, setFirNumber] = useState('');
+    const [evidence, setEvidence] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [otp, setOTP] = useState('');
-    const [userStatus, setUserStatus] = useState('');
 
-    const [nidNumberError , setNidNumberError] = useState('');
+    const [firNumberError , setFirNumberError] = useState('');
     const [phoneNumberError , setPhoneNumberError] = useState('');
     const [otpError , setOTPError] = useState('');
 
-    const registerUser = (e) =>{
+    const evidenceUpload = (e) =>{
         e.preventDefault();
-        if(nidNumber !== '' || nidNumber !== null && phoneNumber !== '' || phoneNumber !== null && otp !== '' || otp !== null)
+        if(firNumber !== '' || firNumber !== null && phoneNumber !== '' || phoneNumber !== null && otp !== '' || otp !== null)
         {
             const data = {
-                nidNumber : nidNumber,
-                faceRecognition: faceRecognition,
+                firNumber : firNumber,
+                evidence: evidence,
                 phoneNumber: phoneNumber,
-                otp: otp,
-                useStatus : userStatus
+                otp: otp
             }
             axios.post('http://127.0.0.1:3100/api/users/create', data)
             .then(
@@ -37,7 +35,7 @@ const Registration = () => {
             )
         }
         else{
-            setNidNumberError('Nid Number is required!');
+            setFirNumberError('FIR Number is required!');
             setPhoneNumberError('Phone Number is required!');
             setOTPError('OTP is required!');
         }
@@ -49,16 +47,16 @@ const Registration = () => {
             <div className="row justify-content-center pt-5">
                 <div className="col-sm-4">
                     <div className="card p-4">
-                    <h2 className="align-items-center text-center text-primary ">Registration</h2>
+                    <h2 className="align-items-center text-center text-primary ">Upload Evidence</h2>
                         <div className="mb-3">
-                            <label htmlFor="nidNumber" className="form-label">NID</label>
-                            <input type="text" name="nidNumber" id="nidNumber" value={nidNumber} onChange={(e)=>{setNidNumber(e.target.value)}} className="form-control"  placeholder="Enter NID" />
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
+                            <label htmlFor="firNumber" className="form-label">FIR Number</label>
+                            <input type="text" name="firNumber" id="firNumber" value={firNumber} onChange={(e)=>{setFirNumber(e.target.value)}} className="form-control"  placeholder="Enter FIR Number" />
+                             {firNumberError !== '' || firNumberError !== null ? firNumberError : ''}
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="faceRecognition" className="form-label text-center">Face Recognition</label>
-                            <input type="text" name="faceRecognition" id="faceRecognition" value={faceRecognition} onChange={(e)=>{setFaceRecognition(e.target.value)}} className="form-control"  placeholder="Enter Face Recognition" />
+                            <label htmlFor="evidence" className="form-label text-center">Evidence</label>
+                            <input type="file" name="evidence" id="evidence" value={evidence} onChange={(e)=>{setEvidence(e.target.value)}} className="form-control"  placeholder="Upload Evidence" />
                         </div>
 
                         <div className="mb-3">
@@ -71,26 +69,12 @@ const Registration = () => {
                             <label htmlFor="otp" className="form-label">OTP</label>
                             <input type="text" name="otp" id="otp" value={otp} onChange={(e)=>{setOTP(e.target.value)}} className="form-control"  placeholder="Enter OTP" />
                             {otpError !== '' || otpError !== null ? otpError : ''}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="userStatus" className="form-label">Status</label>
-                            <input type="text" name="userStatus" id="userStatus" value={userStatus} onChange={(e)=>{setUserStatus(e.target.value)}} className="form-control"  placeholder="Enter Status" />
-                        </div>  
+                        </div> 
 
                         <div className="d-grid">
                             <Button variant="primary" type="submit">
                             Submit
                             </Button>
-                        </div>
-
-                        <div className="mt-3">
-                            <p className="mb-0  text-center">
-                                Already have an account??{' '}
-                                <a href="{''}" className="text-primary fw-bold">
-                                Sign In
-                                </a>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -98,4 +82,4 @@ const Registration = () => {
         </div>
     );
 }
-export default Registration;
+export default Evidence;
