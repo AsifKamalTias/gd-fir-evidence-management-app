@@ -1,48 +1,30 @@
-import { useState } from "react";
-import axios from "axios";
-import Footer from "../../components/Footer";
-import {Button} from 'react-bootstrap';
+import { useState, useEffect } from "react";
+import RegistrationS1 from "../../components/user/RegistrationS1";
+import RegistrationS2 from "../../components/user/RegistrationS2";
+import RegistrationS3 from "../../components/user/RegistrationS3";
+import RegistrationS4 from "../../components/user/RegistrationS4";
 
 const Registration = () => {
+    const [rStep, setRStep] = useState(1);
 
-    const [nidNumber, setNidNumber] = useState('');
-    const [faceRecognition, setFaceRecognition] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [otp, setOTP] = useState('');
-    const [userStatus, setUserStatus] = useState('');
-
-    const [nidNumberError , setNidNumberError] = useState('');
-    const [phoneNumberError , setPhoneNumberError] = useState('');
-    const [otpError , setOTPError] = useState('');
-
-    const registerUser = (e) =>{
-        e.preventDefault();
-        if(nidNumber !== '' || nidNumber !== null && phoneNumber !== '' || phoneNumber !== null && otp !== '' || otp !== null)
-        {
-            const data = {
-                nidNumber : nidNumber,
-                faceRecognition: faceRecognition,
-                phoneNumber: phoneNumber,
-                otp: otp,
-                useStatus : userStatus
-            }
-            axios.post('http://127.0.0.1:3100/api/users/create', data)
-            .then(
-                (success)=>{
-                    console.log(success);
-                },
-                (error)=>{
-                    console.log(error);
-                }
-            )
+    useEffect(()=>{
+        if(localStorage.getItem('rStep') === null || localStorage.getItem('rStep') === '1'){
+            localStorage.setItem('rStep', 1);  
+            setRStep(1);          
         }
-        else{
-            setNidNumberError('Nid Number is required!');
-            setPhoneNumberError('Phone Number is required!');
-            setOTPError('OTP is required!');
+        if(localStorage.getItem('rStep') === '2'){
+            localStorage.setItem('rStep', 2);
+            setRStep(2);
         }
-        
-    }
+        if(localStorage.getItem('rStep') === '3'){
+            localStorage.setItem('rStep', 3);
+            setRStep(3);
+        }
+        if(localStorage.getItem('rStep') === '4'){
+            localStorage.setItem('rStep', 4);
+            setRStep(4);
+        }
+    },[rStep])
 
     return(
         <div>
@@ -50,48 +32,10 @@ const Registration = () => {
                 <div className="col-sm-4">
                     <div className="card p-4">
                     <h2 className="align-items-center text-center text-primary ">Registration</h2>
-                        <div className="mb-3">
-                            <label htmlFor="nidNumber" className="form-label">NID</label>
-                            <input type="text" name="nidNumber" id="nidNumber" value={nidNumber} onChange={(e)=>{setNidNumber(e.target.value)}} className="form-control"  placeholder="Enter NID" />
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="faceRecognition" className="form-label text-center">Face Recognition</label>
-                            <input type="text" name="faceRecognition" id="faceRecognition" value={faceRecognition} onChange={(e)=>{setFaceRecognition(e.target.value)}} className="form-control"  placeholder="Enter Face Recognition" />
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
-                            <input type="text" name="phoneNumber" id="phoneNumber"  value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} className="form-control"  placeholder="Enter Phone" />
-                            {phoneNumberError !== '' || phoneNumberError !== null ? phoneNumberError : ''}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="otp" className="form-label">OTP</label>
-                            <input type="text" name="otp" id="otp" value={otp} onChange={(e)=>{setOTP(e.target.value)}} className="form-control"  placeholder="Enter OTP" />
-                            {otpError !== '' || otpError !== null ? otpError : ''}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="userStatus" className="form-label">Status</label>
-                            <input type="text" name="userStatus" id="userStatus" value={userStatus} onChange={(e)=>{setUserStatus(e.target.value)}} className="form-control"  placeholder="Enter Status" />
-                        </div>  
-
-                        <div className="d-grid">
-                            <Button variant="primary" type="submit">
-                            Submit
-                            </Button>
-                        </div>
-
-                        <div className="mt-3">
-                            <p className="mb-0  text-center">
-                                Already have an account??{' '}
-                                <a href="{''}" className="text-primary fw-bold">
-                                Sign In
-                                </a>
-                            </p>
-                        </div>
+                    {rStep === 1 ? <RegistrationS1/> : ''}
+                    {rStep === 2 ? <RegistrationS2/> : ''}
+                    {rStep === 3 ? <RegistrationS3 /> : ''}
+                    {rStep === 4 ? <RegistrationS4 /> : ''}
                     </div>
                 </div>
             </div>
