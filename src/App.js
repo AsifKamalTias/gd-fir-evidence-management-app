@@ -13,6 +13,7 @@ import UserRegisterFIR from './pages/User/RegisterFIR'
 import UserRegisterGD from './pages/User/RegisterGD'
 import UserEvidence from './pages/User/Evidence'
 import UserTrackFIR from './pages/User/TrackFIR'
+import UserDashboard from './pages/User/Dashboard'
 
 import PoliceLogin from './pages/Police/Login'
 import PoliceRegisterFIR from './pages/Police/RegisterFIR'
@@ -37,6 +38,7 @@ function App() {
         <Route path="/user/evidence" element={<UserEvidence/>} />
         <Route path="/user/track/fir" element={<UserTrackFIR/>} />
         <Route path="/user/list" element={<UserList/>} />
+        <Route path="/user/dashboard" element={<UserDashboard/>} />
 
         <Route path="/police/login" element={<PoliceLogin/>} />
         <Route path="/police/fir" element={<PoliceRegisterFIR/>} />
