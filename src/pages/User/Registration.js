@@ -33,7 +33,7 @@ const Registration = () => {
             <div className="row justify-content-center pt-5">
                 <div className="col-sm-4">
                     <div className="card p-4">
-                    <h2 className="align-items-center text-center text-primary ">Registration</h2>
+                    <h2 className="align-items-center text-center text-primary ">User Registration</h2>
                     {rStep === 1 ? <RegistrationS1/> : ''}
                     {rStep === 2 ? <RegistrationS2/> : ''}
                     {rStep === 3 ? <RegistrationS3 /> : ''}
