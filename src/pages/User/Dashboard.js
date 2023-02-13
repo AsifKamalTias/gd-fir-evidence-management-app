@@ -7,8 +7,8 @@ import Footer from '../../components/Footer';
 const Dashboard = () => {
     return (
         <>
-            <div>
             <UserHeader></UserHeader>
+            <div className='mt-4'>
                 <Container>
                     <Row>
                         <Col xs={12}>
