@@ -20,6 +20,7 @@ const UserHeader = () => {
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to="/user/fir">FIR</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link as={Link} to="/user/login">Log Out</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

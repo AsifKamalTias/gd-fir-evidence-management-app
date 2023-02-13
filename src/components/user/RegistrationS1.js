@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const RegistrationS1 = () => {
     const [nidNumber, setNidNumber] = useState('');
@@ -64,9 +65,9 @@ const RegistrationS1 = () => {
             <div className="mt-3">
                 <p className="mb-0  text-center">
                     Already have an account??{' '}
-                    <a href="/user/login" className="text-primary fw-bold">
-                    Sign In
-                    </a>
+                    <Link to="/user/login" className="text-primary fw-bold">
+                        Sign In
+                    </Link>
                 </p>
             </div>
         </div>

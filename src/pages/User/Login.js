@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import Header from "../../components/Header";
 import LoginS1 from "../../components/user/LoginS1";
 import LoginS2 from "../../components/user/LoginS2";
@@ -25,9 +26,9 @@ const Login = () => {
                         <div className="mt-3">
                             <p className="mb-0  text-center">
                                 Don't have an account??{' '}
-                                <a href="/user/registration" className="text-primary fw-bold">
-                                Register
-                                </a>
+                                <Link to="/user/registration" className="text-primary fw-bold">
+                                    Register
+                                </Link>
                             </p>
                         </div>
                     </div>
