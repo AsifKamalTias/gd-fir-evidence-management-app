@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Header from "../../components/Header";
 import LoginS1 from "../../components/user/LoginS1";
 import LoginS2 from "../../components/user/LoginS2";
 
@@ -15,6 +16,7 @@ const Login = () => {
     }, [])
     return(
         <div>
+            <Header></Header>
             <div className="row justify-content-center pt-5">
                 <div className="col-sm-4">
                     <div className="card p-4">

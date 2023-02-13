@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Header from "../../components/Header";
 import RegistrationS1 from "../../components/user/RegistrationS1";
 import RegistrationS2 from "../../components/user/RegistrationS2";
 import RegistrationS3 from "../../components/user/RegistrationS3";
@@ -28,6 +29,7 @@ const Registration = () => {
 
     return(
         <div>
+            <Header></Header>
             <div className="row justify-content-center pt-5">
                 <div className="col-sm-4">
                     <div className="card p-4">

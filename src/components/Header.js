@@ -1,32 +1,31 @@
-const Header = () =>{
-    return(
-        <>
-            <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light ">
-                    <a className="navbar-brand mx-3" href="#">
-                    <img src={require('../images/logo.png')} width="150" height="60" className="d-inline-block align-top" alt=""></img>
-                    </a>
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, NavDropdown, Container, Image } from 'react-bootstrap';
 
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                        <li className="nav-item active">
-                         <a className="nav-link" href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
-                         <a className="nav-link" href="#">Register</a>
-                        </li>
-                        <li className="nav-item">
-                         <a className="nav-link" href="#">Log In</a>
-                        </li>
-                        <li className="nav-item">
-                         <a className="nav-link" href="#">Contact</a>
-                        </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </>
+const Header = () => {
+    return (
+        <Navbar expand="lg" variant="light" bg="light">
+            <Container>
+                <Link to="/">
+                    <Image src={require('../images/logo.png')} width="150" height="60" className="d-inline-block align-top" alt=""></Image>
+                </Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/user/registration">Register</Nav.Link>
+                        <NavDropdown title="Log In" id="basic-nav-dropdown">
+                            <NavDropdown.Item as={Link} to="/user/login">User</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/police/login">Police Officer</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/forensic/login">Forensic Officer</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item as={Link} to="/user/registration">Register</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
-}
+};
 
 export default Header;

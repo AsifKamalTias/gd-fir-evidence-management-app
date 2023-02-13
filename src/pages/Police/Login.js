@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../../components/Footer";
 import {Button} from 'react-bootstrap';
+import Header from "../../components/Header";
 
 const Login = () => {
 
@@ -43,6 +43,7 @@ const Login = () => {
 
     return(
         <div>
+            <Header></Header>
             <div className="row justify-content-center pt-5">
                 <div className="col-sm-4">
                     <div className="card p-4">
