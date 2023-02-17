@@ -4,7 +4,6 @@ import UserHeader from "../../components/user/UserHeader";
 import {Button} from 'react-bootstrap';
 
 const RegisterFIR = () => {
-    const [offenceDate, setOffenceDate] = useState('');
     const [address, setAddress] = useState('');
     const [offence, setOffence] = useState('');
     const [offenceDescription, setOffenceDescription] = useState('');
@@ -17,7 +16,6 @@ const RegisterFIR = () => {
     const [offenceError , setOffenceError] = useState('');
     const [offenceDescriptionError , setOffenceDescriptionError] = useState('');
     const [stationError , setStationError] = useState('');
-    const [offenceDateError , setOffenceDateError] = useState('');
 
     const registerFir = (e) =>{
         e.preventDefault();
@@ -51,12 +49,6 @@ const RegisterFIR = () => {
                 <div className="col-sm-4">
                     <div className="card p-4">
                     <h2 className="align-items-center text-center text-primary ">FIR Registration</h2>
-                        <div className="mb-3">
-                            <label htmlFor="offenceDate" className="form-label">Offence Date & Time</label>
-                            <input type="datetime-local" name="offenceDate" id="offenceDate" value={offenceDate} onChange={(e)=>{setOffenceDate (e.target.value)}} className="form-control"  placeholder="Enter Offence Date & Time" />
-                             {offenceDateError !== '' || offenceDateError !== null ? offenceDateError : ''}
-                        </div>
-
                         <div className="mb-3">
                             <label htmlFor="address" className="form-label">Address</label>
                             <input type="text" name="address" id="address" value={address} onChange={(e)=>{setAddress(e.target.value)}} className="form-control"  placeholder="Enter Address" />
