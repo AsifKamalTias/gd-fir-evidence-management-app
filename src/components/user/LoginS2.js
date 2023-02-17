@@ -18,11 +18,11 @@ const LoginS2 = () => {
             axios.post('http://127.0.0.1:3100/api/users/login/verify/otp', data)
             .then(
                 (success)=>{
-                    console.log(success);
+                    //console.log(success);
                     localStorage.removeItem('loggingQueuedUser');
-                    localStorage.setItem('loggedUser', JSON.stringify(success.data._id));
-                    localStorage.setItem('LStep', 3);
-                    //window.location.href = '/user/login';
+                    localStorage.setItem('loggedUser', success.data);
+                    localStorage.removeItem('LStep');
+                    window.location.href = '/user/dashboard';
                 },
                 (error)=>{
                     console.log(error);
@@ -54,7 +54,7 @@ const LoginS2 = () => {
 
                         <div className="d-grid">
                             <Button variant="primary" type="submit">
-                            Next
+                            Login
                             </Button>
                         </div>
                         </form>

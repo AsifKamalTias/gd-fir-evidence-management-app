@@ -9,6 +9,10 @@ const Registration = () => {
     const [rStep, setRStep] = useState(1);
 
     useEffect(()=>{
+        document.title = 'Registration | Blockchain-Based Police Complaint and Crime Evidence Management System';
+        if(localStorage.getItem('loggedUser')) {
+            window.location.href = '/user/dashboard';
+        }
         if(localStorage.getItem('rStep') === null || localStorage.getItem('rStep') === '1'){
             localStorage.setItem('rStep', 1);  
             setRStep(1);          

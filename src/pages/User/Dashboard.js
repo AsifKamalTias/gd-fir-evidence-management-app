@@ -1,11 +1,16 @@
-import React from 'react';
-import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { Col, Row, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import UserHeader from '../../components/user/UserHeader';
-import Footer from '../../components/Footer';
 
 const Dashboard = () => {
+    useEffect(() => {
+        document.title = 'Dashboard | Blockchain-Based Police Complaint and Crime Evidence Management System';
+        if(localStorage.getItem('loggedUser') === null) {
+            window.location.href = '/user/login';
+        }
+    }, [])
     return (
         <>
             <UserHeader></UserHeader>

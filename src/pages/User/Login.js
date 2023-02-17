@@ -7,6 +7,10 @@ import LoginS2 from "../../components/user/LoginS2";
 const Login = () => {
     const [LStep, setLStep] = useState(1);
     useEffect(() => {
+        document.title = 'Login | Blockchain-Based Police Complaint and Crime Evidence Management System';
+        if(localStorage.getItem('loggedUser')) {
+            window.location.href = '/user/dashboard';
+        }
         if(localStorage.getItem('LStep') !== null){
             setLStep(localStorage.getItem('LStep'));
         }

@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Container, Image } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Container, Image, Button } from 'react-bootstrap';
 
 const UserHeader = () => {
+
+    const logout = () => {
+        localStorage.removeItem('loggedUser');
+        window.location.href = '/user/login';
+    }
+
     return (
         <Navbar expand="lg" variant="light" bg="light">
             <Container>
@@ -20,7 +26,7 @@ const UserHeader = () => {
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to="/user/fir">FIR</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link as={Link} to="/user/login">Log Out</Nav.Link>
+                        <Button variant="outline-danger" onClick={logout}>Logout</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

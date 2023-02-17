@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
 const Home = () => {
+    useEffect(() => {
+        document.title = 'Home | Blockchain-Based Police Complaint and Crime Evidence Management System';
+        if(localStorage.getItem('loggedUser')) {
+            window.location.href = '/user/dashboard';
+        }
+    }, []);
     return (
         <>
             <Header />
