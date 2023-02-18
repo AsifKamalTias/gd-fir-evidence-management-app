@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../../components/Footer";
+import PoliceHeader from '../../components/police/PoliceHeader';
 import {Button} from 'react-bootstrap';
 
 const TrackFIR = () => {
@@ -10,7 +10,7 @@ const TrackFIR = () => {
     const [firNumberError , setFirNumberError] = useState('');
 
 
-    const evidenceUpload = (e) =>{
+    const trackFIR = (e) =>{
         e.preventDefault();
         if(firNumber !== '' || firNumber !== null)
         {
@@ -36,6 +36,7 @@ const TrackFIR = () => {
 
     return(
         <div>
+            <PoliceHeader></PoliceHeader>
             <div className="row justify-content-center pt-5">
                 <div className="col-sm-4">
                     <div className="card p-4">

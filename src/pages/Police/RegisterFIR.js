@@ -1,32 +1,29 @@
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../../components/Footer";
+import PoliceHeader from '../../components/police/PoliceHeader';
 import {Button} from 'react-bootstrap';
 
 const RegisterFIR = () => {
-
-    const [nidNumber, setNidNumber] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
     const [offence, setOffence] = useState('');
     const [offenceDescription, setOffenceDescription] = useState('');
     const [station, setStation] = useState('');
     const [suspect, setSuspect] = useState('');
-    const [otp, setOTP] = useState('');
+    const [evidence, setEvidence] = useState('');
 
 
-    const [nidNumberError , setNidNumberError] = useState('');
-    const [phoneNumberError , setPhoneNumberError] = useState('');
-    const [otpError , setOTPError] = useState('');
+    const [addressError , setAddressError] = useState('');
+    const [offenceError , setOffenceError] = useState('');
+    const [offenceDescriptionError , setOffenceDescriptionError] = useState('');
+    const [stationError , setStationError] = useState('');
 
     const registerFir = (e) =>{
         e.preventDefault();
-        if(nidNumber !== '' || nidNumber !== null && phoneNumber !== '' || phoneNumber !== null && otp !== '' || otp !== null)
+        if(address !== '' || address !== null && offenceDescription !== '' || offenceDescription !== null)
         {
             const data = {
-                nidNumber : nidNumber,
-                phoneNumber: phoneNumber,
-                otp: otp
+                address : address,
+                offenceDescription: offenceDescription
             }
             axios.post('http://127.0.0.1:3100/api/users/create', data)
             .then(
@@ -39,35 +36,23 @@ const RegisterFIR = () => {
             )
         }
         else{
-            setNidNumberError('Nid Number is required!');
-            setPhoneNumberError('Phone Number is required!');
-            setOTPError('OTP is required!');
+            setAddressError('Address is required!');
+            setOffenceDescriptionError('Offence Description is required!');
         }
         
     }
 
     return(
         <div>
+            <PoliceHeader></PoliceHeader>
             <div className="row justify-content-center pt-5">
                 <div className="col-sm-4">
                     <div className="card p-4">
                     <h2 className="align-items-center text-center text-primary ">FIR Registration</h2>
                         <div className="mb-3">
-                            <label htmlFor="nidNumber" className="form-label">NID</label>
-                            <input type="text" name="nidNumber" id="nidNumber" value={nidNumber} onChange={(e)=>{setNidNumber(e.target.value)}} className="form-control"  placeholder="Enter NID" />
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
-                            <input type="text" name="phoneNumber" id="phoneNumber"  value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} className="form-control"  placeholder="Enter Phone" />
-                            {phoneNumberError !== '' || phoneNumberError !== null ? phoneNumberError : ''}
-                        </div>
-
-                        <div className="mb-3">
                             <label htmlFor="address" className="form-label">Address</label>
                             <input type="text" name="address" id="address" value={address} onChange={(e)=>{setAddress(e.target.value)}} className="form-control"  placeholder="Enter Address" />
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
+                             {addressError !== '' || addressError !== null ? addressError : ''}
                         </div>
 
                         <div className="mb-3">
@@ -78,13 +63,13 @@ const RegisterFIR = () => {
                                 <option>Cyber Crime</option>
                                 <option>Drug</option>
                             </select>
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
+                             {offenceError !== '' || offenceError !== null ? offenceError : ''}
                         </div>
 
                         <div className="mb-3">
                             <label htmlFor="offenceDescription" className="form-label">Offence Description</label>
                             <textarea name="offenceDescription" id="offenceDescription" value={offenceDescription} onChange={(e)=>{setOffenceDescription(e.target.value)}} className="form-control"  placeholder="Enter Description" ></textarea>
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
+                             {offenceDescriptionError !== '' || offenceDescriptionError !== null ? offenceDescriptionError : ''}
                         </div>
 
                         <div className="mb-3">
@@ -95,19 +80,17 @@ const RegisterFIR = () => {
                                 <option>Uttara</option>
                                 <option>Vatara</option>
                             </select>
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
+                             {stationError !== '' || stationError !== null ? stationError : ''}
                         </div>
 
                         <div className="mb-3">
                             <label htmlFor="suspect" className="form-label">Suspect Information</label>
                             <input type="text" name="suspect" id="suspect" value={address} onChange={(e)=>{setSuspect(e.target.value)}} className="form-control"  placeholder="Enter Suspect Information" />
-                             {nidNumberError !== '' || nidNumberError !== null ? nidNumberError : ''}
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="otp" className="form-label">OTP</label>
-                            <input type="text" name="otp" id="otp" value={otp} onChange={(e)=>{setOTP(e.target.value)}} className="form-control"  placeholder="Enter OTP" />
-                            {otpError !== '' || otpError !== null ? otpError : ''}
+                            <label htmlFor="evidence" className="form-label text-center">Evidence</label>
+                            <input type="file" name="evidence" id="evidence" value={evidence} onChange={(e)=>{setEvidence(e.target.value)}} className="form-control"  placeholder="Upload Evidence" />
                         </div>
 
                         <div className="d-grid">
