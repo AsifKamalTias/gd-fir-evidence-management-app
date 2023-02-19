@@ -18,7 +18,7 @@ const LoginS2 = () => {
                 .then(
                     (success) => {
                         //console.log(success);
-                        localStorage.removeItem('loggingQueueOfficer');
+                        localStorage.removeItem('loggingQueuedOfficer');
                         localStorage.setItem('loggedOfficer', success.data);
                         localStorage.removeItem('LStep');
                         window.location.href = '/officer/dashboard';

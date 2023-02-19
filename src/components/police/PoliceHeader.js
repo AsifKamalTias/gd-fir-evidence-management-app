@@ -21,11 +21,11 @@ const PoliceHeader = () => {
                         <Nav.Link as={Link} to="/officer/dashboard">Home</Nav.Link>
                         <Nav.Link as={Link} to="/officer/complaints">View Assigned Cases</Nav.Link>
                         <Nav.Link as={Link} to="/officer/track/fir">Track Complaint</Nav.Link>
-                        <NavDropdown title="Register Complaints" id="basic-nav-dropdown">
+                        {/* <NavDropdown title="Register Complaints" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/officer/gd">GD</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to="/officer/fir">FIR</NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
                         <Button variant="outline-danger" onClick={logout}>Logout</Button>
                     </Nav>
                 </Navbar.Collapse>

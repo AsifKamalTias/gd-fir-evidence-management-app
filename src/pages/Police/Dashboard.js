@@ -23,12 +23,12 @@ const Dashboard = () => {
                     </Row>
                     <Row>
                         <Col xs={12} className="text-center">
-                            <Link to="/police/fir" className="btn btn-primary btn-block my-3 m-3">
+                            {/* <Link to="/police/fir" className="btn btn-primary btn-block my-3 m-3">
                                 Register FIR
                             </Link>
                             <Link to="/police/gd" className="btn btn-primary btn-block my-3 m-3">
                                 Register GD
-                            </Link>
+                            </Link> */}
                             <Link to="/police/complaints" className="btn btn-primary btn-block my-3 m-3">
                                 View Assigned Cases
                             </Link>
