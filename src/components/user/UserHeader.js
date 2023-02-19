@@ -20,6 +20,7 @@ const UserHeader = () => {
                     <Nav className="ml-auto">
                         <Nav.Link as={Link} to="/user/dashboard">Home</Nav.Link>
                         <Nav.Link as={Link} to="/user/evidence">Upload Evidence</Nav.Link>
+                        <Nav.Link as={Link} to="/user/gd/view">Submitted GD</Nav.Link>
                         <Nav.Link as={Link} to="/user/track/fir">Track Complaint</Nav.Link>
                         <NavDropdown title="Register Complaints" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/user/gd">GD</NavDropdown.Item>

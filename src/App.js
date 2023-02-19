@@ -14,7 +14,7 @@ import UserRegisterFIR from './pages/User/RegisterFIR'
 import UserRegisterGD from './pages/User/RegisterGD'
 import UserEvidence from './pages/User/Evidence'
 import UserTrackFIR from './pages/User/TrackFIR'
-
+import GD from './pages/User/GD';
 
 import PoliceLogin from './pages/Police/Login'
 import PoliceDashboard from './pages/Police/Dashboard'
@@ -37,30 +37,31 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
 
-        <Route path="/user/registration" element={<UserRegistration/>} />
-        <Route path="/user/login" element={<UserLogin/>} />
-        <Route path="/user/dashboard" element={<UserDashboard/>} />
-        <Route path="/user/fir" element={<UserRegisterFIR/>} />
-        <Route path="/user/gd" element={<UserRegisterGD/>} />
-        <Route path="/user/evidence" element={<UserEvidence/>} />
-        <Route path="/user/track/fir" element={<UserTrackFIR/>} />
-        <Route path="/user/list" element={<UserList/>} />
-        
+        <Route path="/user/registration" element={<UserRegistration />} />
+        <Route path="/user/login" element={<UserLogin />} />
+        <Route path="/user/dashboard" element={<UserDashboard />} />
+        <Route path="/user/fir" element={<UserRegisterFIR />} />
+        <Route path="/user/gd" element={<UserRegisterGD />} />
+        <Route path="/user/evidence" element={<UserEvidence />} />
+        <Route path="/user/track/fir" element={<UserTrackFIR />} />
+        <Route path="/user/list" element={<UserList />} />
+        <Route path="/user/gd/view" element={<GD />} />
 
-        
-        <Route path="/police/login" element={<PoliceLogin/>} />
-        <Route path="/police/dashboard" element={<PoliceDashboard/>} />
-        <Route path="/police/fir" element={<PoliceRegisterFIR/>} />
-        <Route path="/police/gd" element={<PoliceRegisterGD/>} />
-        <Route path="/police/evidence" element={<PoliceEvidence/>} />
-        <Route path="/police/track/fir" element={<PoliceTrackFIR/>} />
-        <Route path="/police/complaints" element={<PoliceComplaints/>} />
-        
+
+
+        <Route path="/police/login" element={<PoliceLogin />} />
+        <Route path="/police/dashboard" element={<PoliceDashboard />} />
+        <Route path="/police/fir" element={<PoliceRegisterFIR />} />
+        <Route path="/police/gd" element={<PoliceRegisterGD />} />
+        <Route path="/police/evidence" element={<PoliceEvidence />} />
+        <Route path="/police/track/fir" element={<PoliceTrackFIR />} />
+        <Route path="/police/complaints" element={<PoliceComplaints />} />
+
 
         <Route path="/forensic/login" element={<ForensicLogin />} />
-        <Route path="/forensic/dashboard" element={<ForensicDashboard/>} />
+        <Route path="/forensic/dashboard" element={<ForensicDashboard />} />
         <Route path="/forensic/evidence" element={<ForensicEvidence />} />
-        <Route path="/forensic/complaints" element={<ForensicComplaints/>} />
+        <Route path="/forensic/complaints" element={<ForensicComplaints />} />
       </Routes>
     </BrowserRouter>
   );
