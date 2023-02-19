@@ -10,7 +10,7 @@ const TrackFIR = () => {
     const [firNumberError , setFirNumberError] = useState('');
 
 
-    const evidenceUpload = (e) =>{
+    const trackFIR = (e) =>{
         e.preventDefault();
         if(firNumber !== '' || firNumber !== null)
         {
