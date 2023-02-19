@@ -7,9 +7,17 @@ const Complaints = () => {
   const [assignedCases, setAssignedCases] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/assigned-cases")
-      .then(res => setAssignedCases(res.data))
-      .catch(err => console.log(err));
+    document.title = "Complaints | Blockchain-Based Police Complaint and Crime Evidence Management System";
+
+    const data = {
+      policeId: localStorage.getItem("loggedOfficer"),
+    }
+    axios.post("http://127.0.0.1:3100/api/officers/assigned-cases", data)
+      .then(
+        (success) => {
+          setAssignedCases(success.data);
+        }
+      )
   }, []);
 
   return (
@@ -21,17 +29,25 @@ const Complaints = () => {
           <thead>
             <tr>
               <th>Serial No.</th>
-              <th>Case No.</th>
-              <th>Case Type</th>
+              <th>Offence</th>
+              <th>Description</th>
+              <th>Suspect Info</th>
+              <th>Status</th>
+              <th>Result</th>
+              <th>Date</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {assignedCases.map((assignedCase, index) => (
-              <tr key={assignedCase.caseId}>
+              <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{assignedCase.caseNo}</td>
-                <td>{assignedCase.caseType}</td>
+                <td>{assignedCase.firType.type}</td>
+                <td>{assignedCase.description}</td>
+                <td>{assignedCase.suspectInfo}</td>
+                <td>{assignedCase.status}</td>
+                <td>{assignedCase.result}</td>
+                <td>{assignedCase.createdOn}</td>
                 <td>
                   <Button variant="success">Accept</Button>{' '}
                   <Button variant="danger">Reject</Button>{' '}
