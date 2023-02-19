@@ -47,6 +47,18 @@ function App() {
         <Route path="/user/list" element={<UserList />} />
         <Route path="/user/gd/view" element={<GD />} />
 
+<<<<<<< Updated upstream
+=======
+        
+        <Route path="/officer/login" element={<PoliceLogin/>} />
+        <Route path="/officer/dashboard" element={<PoliceDashboard/>} />
+        <Route path="/officer/fir" element={<PoliceRegisterFIR/>} />
+        <Route path="/officer/gd" element={<PoliceRegisterGD/>} />
+        <Route path="/officer/evidence" element={<PoliceEvidence/>} />
+        <Route path="/officer/track/fir" element={<PoliceTrackFIR/>} />
+        <Route path="/officer/complaints" element={<PoliceComplaints/>} />
+        
+>>>>>>> Stashed changes
 
 
         <Route path="/police/login" element={<PoliceLogin />} />

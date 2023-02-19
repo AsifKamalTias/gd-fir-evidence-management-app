@@ -16,7 +16,7 @@ const Header = () => {
                         <Nav.Link as={Link} to="/user/registration">Register</Nav.Link>
                         <NavDropdown title="Log In" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/user/login">User</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/police/login">Police Officer</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/officer/login">Police Officer</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/forensic/login">Forensic Officer</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
