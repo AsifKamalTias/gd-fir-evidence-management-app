@@ -29,26 +29,26 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About/>} />
+        <Route path="/about" element={<About />} />
 
-        <Route path="/user/registration" element={<UserRegistration/>} />
-        <Route path="/user/login" element={<UserLogin/>} />
-        <Route path="/user/fir" element={<UserRegisterFIR/>} />
-        <Route path="/user/gd" element={<UserRegisterGD/>} />
-        <Route path="/user/evidence" element={<UserEvidence/>} />
-        <Route path="/user/track/fir" element={<UserTrackFIR/>} />
-        <Route path="/user/list" element={<UserList/>} />
-        <Route path="/user/dashboard" element={<UserDashboard/>} />
+        <Route path="/user/registration" element={<UserRegistration />} />
+        <Route path="/user/login" element={<UserLogin />} />
+        <Route path="/user/fir" element={<UserRegisterFIR />} />
+        <Route path="/user/gd" element={<UserRegisterGD />} />
+        <Route path="/user/evidence" element={<UserEvidence />} />
+        <Route path="/user/track/fir" element={<UserTrackFIR />} />
+        <Route path="/user/list" element={<UserList />} />
+        <Route path="/user/dashboard" element={<UserDashboard />} />
 
-        <Route path="/police/login" element={<PoliceLogin/>} />
-        <Route path="/police/fir" element={<PoliceRegisterFIR/>} />
-        <Route path="/police/gd" element={<PoliceRegisterGD/>} />
-        <Route path="/police/evidence" element={<PoliceEvidence/>} />
-        <Route path="/police/track/fir" element={<PoliceTrackFIR/>} />
+        <Route path="/police/login" element={<PoliceLogin />} />
+        <Route path="/police/fir" element={<PoliceRegisterFIR />} />
+        <Route path="/police/gd" element={<PoliceRegisterGD />} />
+        <Route path="/police/evidence" element={<PoliceEvidence />} />
+        <Route path="/police/track/fir" element={<PoliceTrackFIR />} />
 
-        <Route path="/forensic/login" element={<ForensicLogin/>} />
-        <Route path="/forensic/evidence" element={<ForensicEvidence/>} />
-        </Routes>
+        <Route path="/forensic/login" element={<ForensicLogin />} />
+        <Route path="/forensic/evidence" element={<ForensicEvidence />} />
+      </Routes>
     </BrowserRouter>
   );
 }
